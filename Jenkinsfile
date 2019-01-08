@@ -24,8 +24,8 @@ pipeline {
               steps
                 {
                   sh '''
-		        . calculator/bin/activate
-                        cd /home/ansadm/workspace/pypipeline/
+		        cd /home/ansadm/workspace/pypipeline/
+			. calculator/bin/activate
                         flake8 calculator.py test_calculator.py --statistics
 		     '''
 			 }
