@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent ansclt
 	stages {
 	    stage('CheckOut SCM') {    
 	       steps
