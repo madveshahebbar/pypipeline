@@ -30,6 +30,7 @@ pipeline {
               steps
                 {
                   sh '''
+		        cp /home/ansadm/workspace/pypipeline/calculator.py test_calculator.py .
 		        flake8 calculator.py test_calculator.py --statistics
 		     '''
 			 }
