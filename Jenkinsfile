@@ -26,5 +26,24 @@ pipeline {
                '''
                }
            }
+        stage('Unit Test') {
+              steps
+                {
+                  sh '''
+				   . calculator/bin/activate
+				   cp /home/vagrant/calculator.py test_calculator.py .
+				   flake8 calculator.py test_calculator.py --statistics
+				 '''
+			    }
+		    }
+		  stage('Code Coverage') {
+		      steps
+			    {  
+			    sh '''
+				   . calculator/bin/activate
+				   pytest calculator.py test_calculator.py -v --cov
+				'''
+			    }
+            }
 	}
     }
