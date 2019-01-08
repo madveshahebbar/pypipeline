@@ -1,6 +1,8 @@
 pipeline {
-    agent ansclt
-	stages {
+	agent {
+		node 'ansclt'
+	}
+	  stages {
 	    stage('CheckOut SCM') {    
 	       steps
 	         { 
