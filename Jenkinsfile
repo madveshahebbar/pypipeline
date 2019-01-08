@@ -16,7 +16,7 @@ pipeline {
                cd /home/ansadm
 		       virtualenv calculator
 		       . calculator/bin/activate
-	               pip install pip install flake8 pytest pytest-cov 
+	               pip install flake8 pytest pytest-cov 
                   '''
                }
            }
