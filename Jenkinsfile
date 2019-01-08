@@ -1,8 +1,4 @@
 pipeline {
-	parameters
-         {
-	  string(name: 'requirments.txt', description: '/home/ansadm/workspace/pypipeline')
-	 }
 	agent {
 		node 'ansclt'
 	}
@@ -20,10 +16,8 @@ pipeline {
                cd /home/ansadm
 		       virtualenv calculator
 		       . calculator/bin/activate
-		       if [ "x${REQUIREMENTS_FILE}" != "x" ] && [ -f ${REQUIREMENTS_FILE} ]; then 
-               pip install -r ${REQUIREMENTS_FILE}; 
-               fi
-               '''
+	               pip install pip install flake8 pytest pytest-cov 
+                  '''
                }
            }
         stage('Unit Test') {
