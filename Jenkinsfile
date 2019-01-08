@@ -14,7 +14,7 @@ pipeline {
 	       	}
 	    }
        }
-	stage {'set-up'}
+	stage ('set-up')
 		    {
 		      steps
                 {
