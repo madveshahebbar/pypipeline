@@ -20,7 +20,18 @@ pipeline {
                   '''
                }
            }
-        stage('Unit Test') {
+       stage('Code Coverage') {
+	      steps
+	           {  
+		   sh '''
+		      cd /home/ansadm
+		      . calculator/bin/activate
+		      cd /home/ansadm/workspace/pypipeline/
+		      pytest calculator.py test_calculator.py -v --cov
+		      '''
+		}
+            }
+	stage('Unit Test') {
               steps
                 {
                   sh '''
@@ -31,13 +42,6 @@ pipeline {
 		     '''
 			 }
 		    }
-		  stage('Code Coverage') {
-		      steps
-			    {  
-			    sh '''
-				 pytest calculator.py test_calculator.py -v --cov
-				'''
-			    }
-            }
+		  
 	}
     }
