@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	stages {
-	    stage('CheckOut') {    
+	    stage('CheckOut SCM') {    
 	       steps
 	         { 
 	          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GIT', url: 'https://github.com/madveshahebbar/pypipeline.git']]])
