@@ -16,7 +16,7 @@ pipeline {
                cd /home/ansadm
 		       virtualenv calculator
 		       . calculator/bin/activate
-	               pip install flake8 pytest pytest-cov 
+	               sudo pip install flake8 pytest pytest-cov 
                   '''
                }
            }
@@ -24,7 +24,9 @@ pipeline {
               steps
                 {
                   sh '''
-		        flake8 calculator.py test_calculator.py --statistics
+		        . calculator/bin/activate
+                        cd /home/ansadm/workspace/pypipeline/
+                        flake8 calculator.py test_calculator.py --statistics
 		     '''
 			 }
 		    }
@@ -32,8 +34,7 @@ pipeline {
 		      steps
 			    {  
 			    sh '''
-				   . calculator/bin/activate
-				   pytest calculator.py test_calculator.py -v --cov
+				 pytest calculator.py test_calculator.py -v --cov
 				'''
 			    }
             }
